@@ -18,18 +18,18 @@ class TestWebsite:
 
     @pytest.fixture(autouse=True)
     def browser_setup_and_teardown(self):
-        self.use_selenoid = False  # set to True to run tests with Selenoid
-
-        if self.use_selenoid:
-            self.browser = webdriver.Remote(
-                command_executor='http://localhost:4444/wd/hub',
-                desired_capabilities={
-                    "browserName": self.browserName,
-                    "browserSize": self.browserSize
-                }
-            )
-        else:
-            self.browser = webdriver.Chrome(ChromeDriverManager().install())
+        # self.use_selenoid = False  # set to True to run tests with Selenoid
+        #
+        # if self.use_selenoid:
+        #     self.browser = webdriver.Remote(
+        #         command_executor='http://localhost:4444/wd/hub',
+        #         desired_capabilities={
+        #             "browserName": self.browserName,
+        #             "browserSize": self.browserSize
+        #         }
+        #     )
+        # else:
+        self.browser = webdriver.Chrome(ChromeDriverManager().install())
 
         self.browser.maximize_window()
         self.browser.implicitly_wait(10)

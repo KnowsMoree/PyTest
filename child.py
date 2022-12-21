@@ -1,14 +1,12 @@
 import time
 
-from selenium.webdriver import Keys
+from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 
 from test import TestWebsite
 
 
-class Testing(TestWebsite):
-    # super().browser_setup_and_teardown
-
+class TestLogin(TestWebsite):
     def test_login_and_upload_file(self):
         """this test checks presence of Developer Tools menu item"""
         uname = self.browser.find_element(By.XPATH, "//*[@id='username']")
